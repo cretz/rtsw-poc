@@ -1,0 +1,15 @@
+[submodule "vendor/openssl"]
+	path = vendor/openssl
+	url = https://github.com/openssl/openssl.git
+[submodule "vendor/libevent"]
+	path = vendor/libevent
+	url = https://github.com/libevent/libevent.git
+[submodule "vendor/zlib"]
+	path = vendor/zlib
+	url = https://github.com/madler/zlib.git
+[submodule "vendor/xz"]
+	path = vendor/xz
+	url = http://git.tukaani.org/xz.git
+[submodule "vendor/tor"]
+	path = vendor/tor
+	url = https://github.com/torproject/tor.git

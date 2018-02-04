@@ -1,0 +1,5 @@
+[package]
+name = "rtsw-poc"
+version = "0.1.0"
+authors = ["Chad Retz <chad.retz@gmail.com>"]
+build = "build.rs"
