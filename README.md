@@ -3,11 +3,11 @@
 This project makes a standalone executable built in Rust that statically compiles Tor and all of its dependencies. It
 uses the new (as of this writing)
 [0.3.3.1-alpha](https://blog.torproject.org/tor-0331-alpha-released-back-unstable-development) version which includes
-embedding via a small, supported API. The simple goal of this project is to make the Tor version appear. I put a
+embedding via a small, supported API. The simple goal of this project is to make the Tor version string appear. I put a
 compiled version of `rtsw-poc.exe` in the [releases area](https://github.com/cretz/rtsw-poc/releases).
 
-In the [vendor/](vendor) folder is where the dependencies are as submodules. So clone this repository with `--recursive`.
-They dependencies are:
+The [vendor/](vendor) folder contains all of the dependencies as submodules. So clone this repository with
+`--recursive`. The dependencies are:
 
 * [OpenSSL](https://github.com/openssl/openssl/) - Checked out at tag `OpenSSL_1_0_2n`
 * [Libevent](https://github.com/libevent/libevent) - Checked out at tag `release-2.1.8-stable`
@@ -15,7 +15,8 @@ They dependencies are:
 * [XZ Utils](https://git.tukaani.org/?p=xz.git) - Checked out at tag `v5.2.3`
 * [Tor](https://github.com/torproject/tor) - Checked out at tag `tor-0.3.3.1-alpha`
 
-Many many bugs and quirks were hit while deriving these steps. They are not listed here for brevity reasons.
+Many many bugs and quirks were hit while deriving these steps. Also many other repos, mailing lists, etc were leveraged
+to get some of the pieces right. They are not listed here for brevity reasons.
 
 ### Building
 
@@ -29,7 +30,7 @@ installed, open the "MSYS MinGW 64-bit" shell link that was created. Once in the
 
     pacman -Syuu
 
-Terminate and restart the shell if asked. Rerun this command as many times as needed until it report that everything is
+Terminate and restart the shell if asked. Rerun this command as many times as needed until it reports that everything is
 up to date. Then in the same mingw-64 shell, run:
 
     pacman -Sy --needed base-devel mingw-w64-i686-toolchain mingw-w64-x86_64-toolchain \
@@ -158,5 +159,6 @@ To generate a self-contained executable, run:
 
 The executable will be at `target/release/rtsw-poc.exe`. My version is ~21MB.
 
-This uses the new `tor_api.h` introduced [here](https://trac.torproject.org/projects/tor/ticket/23684). Ideally we would
-make `build.rs` work with multiple targets, automate the building of dependencies, etc but this is just a PoC.
+This uses the new [tor_api.h](https://github.com/torproject/tor/blob/tor-0.3.3.1-alpha/src/or/tor_api.h) introduced
+[here](https://trac.torproject.org/projects/tor/ticket/23684). Ideally we would make `build.rs` work with multiple
+targets, automate the building of dependencies, etc but this is just a PoC.
